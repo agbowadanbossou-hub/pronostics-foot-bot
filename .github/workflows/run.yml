@@ -1,0 +1,19 @@
+name: Lancer le bot
+
+on:
+  workflow_dispatch:
+
+jobs:
+  lancer:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Recuperer le projet
+        uses: actions/checkout@v4
+      - name: Installer Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Installer les dependances
+        run: pip install -r requirements.txt
+      - name: Lancer le bot
+        run: python bot.py
